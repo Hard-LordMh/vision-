@@ -1,0 +1,8 @@
+{
+  "venvPath": "visionai/backend",
+  "venv": ".venv",
+  "extraPaths": [
+    "visionai/backend",
+    "visionai/backend/.venv/Lib/site-packages"
+  ]
+}
