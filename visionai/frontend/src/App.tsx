@@ -56,7 +56,7 @@ function AppContent() {
   };
 
   return (
-    <div className="flex flex-col h-screen w-screen bg-gradient-to-tr from-zinc-950 via-slate-900 to-zinc-950 overflow-hidden relative select-none">
+    <div className="flex flex-col h-screen w-screen bg-gradient-to-tr from-zinc-950 via-slate-900 to-zinc-950 overflow-hidden relative">
       {/* Animated Desktop Wallpaper Blobs */}
       <div className="absolute inset-0 z-0 opacity-20 pointer-events-none">
         <div className="absolute top-[-20%] left-[-20%] w-[50%] h-[50%] bg-blue-500/20 rounded-full mix-blend-screen filter blur-[120px] animate-[pulse-glow_8s_infinite]" />
@@ -84,7 +84,7 @@ function AppContent() {
             {/* Sidebar */}
             <div className="hidden md:flex w-full md:w-56 border-b md:border-b-0 md:border-r border-white/10 bg-zinc-950/45 backdrop-blur-3xl flex-col flex-shrink-0">
               {/* Traffic Lights Controls Header */}
-              <div className="h-12 flex items-center px-4 justify-between border-b border-white/5 flex-shrink-0">
+              <div className="h-12 flex items-center px-4 justify-between border-b border-white/5 flex-shrink-0 select-none">
                 <div className="flex items-center gap-2 group">
                   <button 
                     className="w-3 h-3 rounded-full bg-[#ff5f56] border border-[#e0443e] flex items-center justify-center text-[7px] text-zinc-900 font-bold"
@@ -173,7 +173,7 @@ function AppContent() {
             {/* Canvas Area */}
             <div className="flex-1 flex flex-col overflow-hidden bg-[#18181f]/40 backdrop-blur-md">
               {/* macOS Translucent App Window Header Toolbar */}
-              <div className="h-12 border-b border-white/10 flex items-center justify-between px-6 flex-shrink-0">
+              <div className="h-12 border-b border-white/10 flex items-center justify-between px-6 flex-shrink-0 select-none">
                 <div className="flex items-center gap-4">
                   <div className="flex items-center gap-1">
                     <button 
@@ -216,7 +216,7 @@ function AppContent() {
               </div>
 
               {/* Window Workspace Canvas (Content Router) */}
-              <div className="flex-grow overflow-y-auto p-4 md:p-8">
+              <div className="flex-grow overflow-y-auto p-4 md:p-8 [touch-action:pan-y] overscroll-contain" style={{ WebkitOverflowScrolling: 'touch' }}>
                 <Routes>
                   <Route path="/" element={<Dashboard />} />
                   <Route path="/datasets" element={<Datasets />} />
@@ -233,7 +233,7 @@ function AppContent() {
       </div>
 
       {/* Responsive Dock (Floating macOS Dock on Desktop, Tabbed bottom-bar on Mobile) */}
-      <div className="fixed bottom-0 left-0 w-full h-14 md:absolute md:bottom-4 md:left-1/2 md:-translate-x-1/2 md:w-auto md:h-16 md:px-4 md:rounded-2xl mac-glass-bright flex items-center justify-around md:justify-center md:gap-2.5 pb-1 md:pb-2.5 z-40 shadow-2xl border-t border-white/5 md:border-t-0">
+      <div className="fixed bottom-0 left-0 w-full h-14 md:absolute md:bottom-4 md:left-1/2 md:-translate-x-1/2 md:w-auto md:h-16 md:px-4 md:rounded-2xl mac-glass-bright flex items-center justify-around md:justify-center md:gap-2.5 pb-1 md:pb-2.5 z-40 shadow-2xl border-t border-white/5 md:border-t-0 select-none">
         <DockIcon to="/" active={location.pathname === '/'} icon={<Home className="w-6 h-6" />} tooltip="Dashboard" onClick={() => { setIsClosed(false); setIsMinimized(false); }} />
         <DockIcon to="/datasets" active={location.pathname === '/datasets'} icon={<Database className="w-6 h-6" />} tooltip="Datasets" onClick={() => { setIsClosed(false); setIsMinimized(false); }} />
         <DockIcon to="/training" active={location.pathname === '/training'} icon={<BrainCircuit className="w-6 h-6" />} tooltip="Training" onClick={() => { setIsClosed(false); setIsMinimized(false); }} />
