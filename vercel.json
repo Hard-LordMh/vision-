@@ -1,0 +1,22 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "visionai/frontend/dist"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/assets/(.*)",
+      "dest": "/visionai/frontend/dist/assets/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/visionai/frontend/dist/index.html"
+    }
+  ]
+}

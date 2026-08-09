@@ -1,0 +1,8 @@
+{
+  "name": "visionai-root",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "cd visionai/frontend && npm install && npm run build"
+  }
+}
